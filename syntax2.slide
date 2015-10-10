@@ -1,0 +1,142 @@
+Java syntax - Classes and Objects
+October 2015
+Tags: java, fundamentals, introduction
+
+Radomír Sohlich
+sohlich@gmail.com
+github.com/sohlich
+@radek_sohlich
+
+* Syntax
+
+* Interface definition
+- keyword interface
+- public method signatures
+- public static variables
+
+* Class definition
+- use keyword class
+- reference type
+- implicitly extends Object class (hashcode, equals, toString)
+#Object class does not :D
+  public class Car {
+   final int wheels;
+   public final String type;
+   public final String brand;
+   private kilometers;
+
+   public final int getKilometers(){
+    return kilometers;
+   }
+  }
+
+* Create and Use Object
+- new operator
+- "." access methods and variables
+- public fields and methods accessible
+  	Car toyota = new Car();
+
+- call methods of object
+	toyota.startEngine();
+
+* null reference
+- member of every reference type
+
+	Object o = null;
+	Car c = null;
+
+
+* Subclasses 
+- inheritance from one class
+- final classes cannot be extended
+- subclasses inherit from parent class
+- protected and public fields/methods of parent accessible
+
+	public class Porsche extends Car {
+		private int horsePower;
+		private boolean radio; 
+
+		@Override
+		public void startEngine(){
+			turnRadioOn();
+			super.startEngine();
+		}
+
+		public void turnRadioOn(){
+			radio = true;
+		}
+	}
+
+
+* Interfaces
+- defines new reference type
+- represents only API
+- can be extended
+	public interface Repairable{
+		public boolean repair();
+		public int getDamage();
+	}
+
+
+* Interface implementation
+- class can implement more interfaces
+
+	public interface Drivable{
+		public void drive();
+	}
+
+	public class RepairablePorsche 
+		extends Porsche 
+		implements Repairable, Driveable{
+
+		@Override
+		public boolean repair(){
+			return true;
+		}
+
+		@Override
+		public int getDamage(){
+			return 50;
+		}
+
+		@Override
+		public void drive(){
+		}
+	}
+* How to use interfaces
+- to simplify object usage
+- class assignable to every type that implements (or extends)
+#garage examples
+	
+	Porsche porsche = new RepairablePorsche();
+
+	Repairable order = porsche;
+	order.getDamage();
+	order.repair();
+
+	Driveable car = porsche;
+	car.drive();
+
+
+
+
+
+
+* Package and import
+- classes grouped by package
+- classes in package see each other
+- to avoid 
+	package cz.fai.utb.processor
+
+	public class Plugin{
+		cz.fai.utb.data.dto.PluginInfo info = new cz.fai.utb.data.dto.PluginInfo();
+	}
+- use
+	package cz.fai.utb.processor
+	
+	import cz.fai.utb.data.dto.PluginInfo;
+
+	public class Plugin{
+		PluginInfo info = new PluginInfo();
+	}
+

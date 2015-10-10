@@ -1,0 +1,119 @@
+Java syntax - Flow Control
+October 2015
+Tags: java, fundamentals, introduction
+
+Radomír Sohlich
+sohlich@gmail.com
+github.com/sohlich
+@radek_sohlich
+
+
+* Syntax
+
+
+* If statement
+- boolean operators
+- &&, ||
+- &, |
+	int a = 5;
+	if( a++ > 5 && a++ > 6){
+
+	}else if( a == 5){
+
+	}else{
+
+	}
+
+	System.out.println(a);
+
+* Switch statement
+- use break, return or throw
+- String since 1.7
+  char c = 'a';
+  switch(c){
+  	case a:
+  		System.out.println("Case a");
+  	case b:
+  		System.out.println("Case b");
+  	default:
+  		System.out.println("Default");
+  }
+#what is the output
+
+* Loops
+- for (foreach)
+	int[] arr = int[]{1,2,3}
+	for(int i : arr){
+		System.out.println(i)
+	}	
+
+- while
+	int i=0;
+	while(i<5){
+		i++;
+	}
+- do while
+	int i=0;
+	do{
+		i++;
+	}while(i<5)
+
+* break statement
+- breaks the loop
+- can be used with label
+	OUTER: 
+	for(int row = 0; row < numrows; row++) {
+		for(int col = 0; col < numcols; col++) {
+			if (data[row][col] == null){
+				break OUTER;
+			}
+		}
+	}
+
+* continue statement
+- continue to new iteration
+- can be used with label
+	OUTER: 
+	for(int row = 0; row < numrows; row++) {
+		for(int col = 0; col < numcols; col++) {
+			if (data[row][col] == null){
+				continue OUTER;
+			}
+		}
+	}
+
+* throw statement
+- cases to manually throw exception
+	if(arg == null){
+		throw new IllegalArgumentException("Cannot be null");
+	}
+
+
+* try/catch/finally statement
+- try cover the block of code
+- catch handles the exception
+- finally - block of ever executed code
+	try{
+		//code that can throw Exception
+	}catch(Exception e){
+		//Some code if exception occurs
+	}finally{
+		//do even if something goes bad (close stream, unlock mutex etc.)
+	}
+
+* try with resource
+- traditionally 
+ 	InputStream is;
+ 	try{
+ 		is = new FileStream("file.txt");
+ 		//process file
+ 	}finally{
+ 		if(is != null) {is.close()};
+ 	}
+- try with resource (since 1.7)
+
+ 	try(InputStream is = new FileStream("file.txt")){
+ 		//porcess
+ 	}
+
+

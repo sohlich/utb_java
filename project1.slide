@@ -1,0 +1,27 @@
+Java - Project structure
+October 2015
+Tags: java, fundamentals, introduction
+
+Radomír Sohlich
+sohlich@gmail.com
+github.com/sohlich
+@radek_sohlich
+
+* First Project
+- Maven
+- Netbeans IDE
+- Java 8
+
+
+* Project structure
+- usual project strucutre
+	+ src
+		+main
+		   +cz
+		   	+utb
+		   	  - Main.java
+		+test
+		   + cz
+		   	+utb
+		   	  -MainTest.java
+	- pom.xml

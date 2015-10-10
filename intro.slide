@@ -1,0 +1,90 @@
+Introduction to Java
+October 2015
+Tags: java, fundamentals, introduction
+
+Radomír Sohlich
+sohlich@gmail.com
+github.com/sohlich
+@radek_sohlich
+
+* Who is this guy
+
+
+
+* Java Environment
+- since 1996 (20 years)
+- Oracle, HP, RedHat, IBM
+- Oracle Java, OpenJDK
+- Java 8
+- Java language + Java Virtual Machine
+.image talk1/java_logos.png
+
+* Java Language
+- OO
+- Class based
+- JLS (Java Language Specification)
+.link https://docs.oracle.com/javase/specs/jls/se8/html/index.html
+
+* Java Virtual Machine
+- runtime environment(platform dependent)
+- executes bytecode
+#java bytecode= instruction is one byte
+#used to be optimised, now optimised to for easy JIT
+
+- provide GC, secure environment
+
+.link https://docs.oracle.com/javase/specs/jvms/se8/html/index.html
+.image talk1/jvm.png
+
+
+* Java Memory Management
+- garbage collected
+- heap and stack
+- objects on heap
+- primitives and references on stack
+.image talk1/memory_model.png
+
+* Garbage collector
+- new allocates memory on heap
+#every time someone use new keyword
+- no reference = not used
+- young and old generation
+- "Stop-the-world"
+#GC cleanup the heap
+.image talk1/gc.png
+
+
+* Javac
+- java language compiler
+- produces .class files (bytecode)
+- live demo
+ javac [ options ] [ sourcefiles ] [ classes ] [ @argfiles ]
+
+
+* Application archives
+- .class files as one archive
+- jar (war, ear)
+- java archive structure
+  jar cvf HelloWorld.jar HelloWorld.class
+ +archive.jar
+   -HelloWorld.class
+   +META-INF
+     - MANIFEST.MF
+
+* Manifest
+- describes the java archive
+- defines the main class
+  Manifest-Version: 1.0
+  Archiver-Version: Plexus Archiver
+  Class-Path: MyUtils.jar
+  Created-By: Apache Maven
+  Built-By: Radomir Sohlich
+  Build-Jdk: 1.8.0_31
+  Main-Class: cz.utb.HelloWorld
+
+* Build tools
+- Apache Ant + Ivy
+- Maven
+- Gradle - default build tool for Android
+
+* Maven: basic project structure

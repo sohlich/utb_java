@@ -1,0 +1,187 @@
+Java syntax - Variables
+October 2015
+Tags: java, fundamentals, introduction
+
+Radomír Sohlich
+sohlich@gmail.com
+github.com/sohlich
+@radek_sohlich
+
+* Syntax
+
+* Generals
+- unicode
+- case sensitive
+- ignore whitespace
+
+* Code syntax
+  package cz.utb.example
+  public void ExampleClass{
+    private String sentence = "Hello";
+
+    public ExampleClass(String sentence){
+     this.sentence = sentence;
+    }
+
+    /**
+    * Prints the hello message.
+    *
+    * @param name say hello to name
+    */
+    public void sayHello(String name){
+        String mesage = getHelloString();
+        //Format string to final message
+        String outputString 
+              = String.format(message+" %s", name);
+        System.out.println(outputString);
+    }
+
+    private String getHelloString(){
+      return sentence;
+    }
+  }
+
+* Comments
+- line comments
+ int wheels //number of wheels on car
+
+- block comments
+ /**
+ * This class defines the car.
+ **/
+
+- java doc
+ /**
+  * Constructor that creates car.
+  *
+  * @param wheels defines wheel count
+  */
+  public Car(int wheels){
+   this.car = wheels
+  }
+
+
+* Primitive datatypes
+- boolean
+- char
+- byte
+- short 
+- int
+- long
+- double
+
+* Char type
+- unicode characters
+ char a = 'a'
+ char b = '\t'
+ char c = '\"'
+ char d = '\u05D0'
+
+* String literals
+- double quoted text
+- refrence type
+- concatenate with "+" operator
+
+  String example = "Example";
+
+  //String breaked through lines
+  String breakExample = "Example"+
+                  "through lines";
+
+  //String with escape chars
+  String escaped = "\" Escaped string";
+
+
+* Integer types
+- all types signed
+- byte 
+    8bits 
+    -127 to 127
+- short 
+    16bits 
+    -32768 to 32768
+- int 
+    32bit 
+    -2147483648 to 2147483647
+- long 
+  64 bits 
+  -9223372036854775808 to 9223372036854775807
+
+* Floating point types
+- float
+  32 bits 
+  1.4E-45 to 3.4028235E+38
+- double
+  64 bits 
+  4.9E-324 to 1.7976931348623157E+308
+
+- positive and negative infinity, zero, NaN
+  double inf = 1.0/0.0;
+  double neginf = -1.0/0.0;
+  double negzero = -1.0/inf;
+  double NaN = 0.0/0.0;
+
+
+* Type conversion
+- boolean cannot be converted
+- () operator
+ int intNum = 25;
+ byte byteVal = (byte) intNum;
+
+* Operators
+- unary
+- binary
+- ternary
+- side effects??
+ int a =0;
+ a=a+2;
+
+* Variables
+- public
+- private
+- protected
+- final
+- transient
+- volatile
+
+* Arrays
+- fixed length
+- indexed from 0
+
+  int[] array = new int[3];
+  array[0] = 1;
+
+  //statically
+  int[] array = new int[]{1,2,3};
+
+  //global variable
+  int[] array = {1,2,3};
+
+
+* Methods
+- abstract
+- public
+- private
+- protected
+- synchronized
+- final
+- *native
+- *strictfp
+
+ public final int getKilometers(){
+    return kilometers;
+   }
+
+* Exceptions
+- checked
+- unchecked
+
+  try{
+      //block that throws
+  }catch(Exception e){
+      //handle exceptions
+  }finally{
+      //do final job
+  }
+
+
